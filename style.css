@@ -1,0 +1,5 @@
+.world-map{
+    background: url('img/world-map.png') no-repeat;
+    background-size: cover;
+    /* opacity: 0.5; */
+}
