@@ -14,7 +14,6 @@ session_start();
     <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
     <link rel="stylesheet" href="createPoll_style.css">
 
     <script>
@@ -36,7 +35,6 @@ session_start();
                     return false;
                 }
                 $('input[name^=choice]:last').parent().remove();
-                // alert("Ok");
             });
             $('#add').click();
             $('#add').click();
@@ -46,20 +44,18 @@ session_start();
     </script>
     <?php
         if($_POST){
-            // session_start();
             $con = mysqli_connect('localhost','root','123456789','web_vote');
             if(!$con){
                 exit("ไม่สามารถเชื่อมต่อฐานข้อมูลได้");
             }
-
+            $date = date('Y/m/d');
             mysqli_set_charset($con,"utf8");
             $topic = $_POST['topic'];
-            $sql = "INSERT INTO `vote_topic` VALUES('','".$topic."','active','".$_SESSION['id']."')";
+            $sql = "INSERT INTO `vote_topic` VALUES('','".$topic."','active','".$_SESSION['id']."','$date')";
             $query = mysqli_query($con,$sql);
             $topic_id = mysqli_insert_id($con);
             $topic_id = mysqli_insert_id($con);
             if($_FILES){
-            //    echo $_FILES['ControlFile']['tmp_name'];
                 move_uploaded_file($_FILES['ControlFile']['tmp_name'],'../../img/Poll/'.$topic_id.'.png');
             }
             $choice = array();
@@ -72,7 +68,6 @@ session_start();
             $value = implode(",",$choice);
             $sql = "INSERT INTO `vote_choice` VALUES $value";
             mysqli_query($con,$sql);
-            // echo "OK";
             header("location:../Show-Vote/Show-Vote.php");
             mysqli_close($con);
         }
@@ -94,7 +89,7 @@ session_start();
                     <a class="nav-link text-dark" href="../Show-Vote/Show-Vote.php" id= "votePoll">โหวตโพล</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="#" id="adoutPoll">เกี่ยวกับ Vote.com</a>
+                    <a class="nav-link text-dark" href="../About/About.php" id="adoutPoll">เกี่ยวกับ Vote.com</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -107,14 +102,13 @@ session_start();
                         <?php echo $_SESSION["Username"] ?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#" id="Logout">Logout</a>
+                            <a class="dropdown-item" href="../My-Poll/My-Poll.php">โพลของฉัน</a>
+                            <a class="dropdown-item" href="../../ServerPHP/Logout/logout_Page.php" id="Logout">Logout</a>
                         </div>
                     </li>   
                 <?php } else { ?>
                     <li class="nav-item">
-                        <a class="nav-link text-dark login" href="#" id="Signin">Sign in</a>
+                        <a class="nav-link text-dark login" href="../Sign-in/Sign-in.php" id="Signin">Sign in</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark login" href="#">Or</a>
@@ -138,6 +132,7 @@ session_start();
             <div class="form-group">
                 <label for="ControlFile">ไฟล์รูปภาพสำหรับพื้นหลัง (ขนาดที่แนะนำคือ 700 x 400)</label>
                 <input type="file" class="form-control-file" name="ControlFile" required>
+                
             </div>
             <br>
             ตัวเลือก
@@ -147,7 +142,7 @@ session_start();
 
             <div class="chice-container"> </div>
                     
-            <div class="footer-form">
+            <div class="footer-form mt-3">
                     <button type="submit" class="btn btn-success" id="btnCre">สร้างโพล</button>
             </div>
         </form>

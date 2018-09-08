@@ -17,7 +17,6 @@ $User_ID = $_GET['User_ID'];
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
     <style>
         canvas{
             width:90% !important;
@@ -44,7 +43,7 @@ $User_ID = $_GET['User_ID'];
                     <a class="nav-link text-dark" href="../Show-Vote/Show-Vote.php" id= "votePoll">โหวตโพล</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="#" id="adoutPoll">เกี่ยวกับ Vote.com</a>
+                    <a class="nav-link text-dark" href="../About/About.php" id="adoutPoll">เกี่ยวกับ Vote.com</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -57,9 +56,8 @@ $User_ID = $_GET['User_ID'];
                         <?php echo $_SESSION["Username"] ?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="../../ServerPHP/Logout/logout_index.php" id="Logout">Logout</a>
+                            <a class="dropdown-item" href="../My-Poll/My-Poll.php">โพลของฉัน</a>
+                            <a class="dropdown-item" href="../../ServerPHP/Logout/logout_Page.php" id="Logout">Logout</a>
                         </div>
                     </li>   
                 <?php } else { ?>

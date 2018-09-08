@@ -7,15 +7,18 @@ session_start();
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="img/icon-02.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vote.com - เว็บไซต์เพื่อสร้างโพลที่แตกต่าง</title>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">  
+    <style>
+        .world-map{
+            background: url('img/world-map.png') no-repeat;
+            background-size: cover;
+        }
+    </style>
     <script>
          $(document).ready(function(){
             $('#btnCreate,#createPoll').click(function(){
@@ -36,13 +39,13 @@ session_start();
         });
     </script>
 </head>
-<body >
+<body>
     <nav class= "navbar navbar-expand-md bg-white navbar-dark shadow-sm">
         <div class="container">
          <a class="navbar-brand text-success" href="#" id="text-lowgo"> <h3>Vote.com</h3> </a>
          <button class="navbar-toggler bg-success" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
-            </button>
+         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ">
                 <li class="nav-item">
@@ -70,8 +73,7 @@ session_start();
                             <a class="dropdown-item" href="ServerPHP/Logout/logout_index.php">Logout</a>
                         </div>
                     </li>   
-                <?php 
-            } else { ?>
+                <?php } else { ?>
                     <li class="nav-item">
                         <a class="nav-link text-dark login" href="Page/Sign-in/Sign-in.php"  id="Signin">Sign in</a>
                     </li>
@@ -81,8 +83,7 @@ session_start();
                     <li class="nav-item">
                         <a class="nav-link text-dark login" href="Page/Sign-Up/Sign-Up.php" id="Signout">Sign up</a>
                     </li>
-                <?php 
-            } ?>
+                <?php } ?>
             </ul>
             </div>           
         </div>
@@ -94,13 +95,13 @@ session_start();
             <div class="mx-auto" style="width: 80%;font-family: 'Mitr', sans-serif;text-align:center;">
                 <h5>
                 <?php
-                    $con = mysqli_connect('localhost','root','123456789','web_vote');
-                    if(!$con){
+                    $con = mysqli_connect('localhost', 'root', '123456789', 'web_vote');
+                    if (!$con) {
                         exit("ไม่สามารถเชื่อมต่อฐานข้อมูลได้");
                     }
-                    mysqli_set_charset($con,"utf8");
+                    mysqli_set_charset($con, "utf8");
                     $sql = "SELECT * FROM `vote_topic`";
-                    $rs =mysqli_query($con,$sql);
+                    $rs = mysqli_query($con, $sql);
                     $count = mysqli_num_rows($rs);
                     echo $count;
                     mysqli_close($con);

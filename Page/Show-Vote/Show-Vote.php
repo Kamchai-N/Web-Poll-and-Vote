@@ -7,14 +7,12 @@ session_start();
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/icon-02.png" type="image/png">
-
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vote.com - Show Poll</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
     <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
 </head>
 <body>
     <nav class= "navbar navbar-expand-md bg-white navbar-dark shadow-sm">
@@ -32,7 +30,7 @@ session_start();
                     <a class="nav-link text-dark" href="#" id= "votePoll">โหวตโพล</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="#" id="adoutPoll">เกี่ยวกับ Vote.com</a>
+                    <a class="nav-link text-dark" href="../About/About.php" id="adoutPoll">เกี่ยวกับ Vote.com</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -45,9 +43,8 @@ session_start();
                         <?php echo $_SESSION["Username"] ?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="../../ServerPHP/Logout/logout_index.php" id="Logout">Logout</a>
+                            <a class="dropdown-item" href="../My-Poll/My-Poll.php">โพลของฉัน</a>
+                            <a class="dropdown-item" href="../../ServerPHP/Logout/logout_Page.php" id="Logout">Logout</a>
                         </div>
                     </li>   
                 <?php } else { ?>

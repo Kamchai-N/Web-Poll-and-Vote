@@ -17,7 +17,6 @@ $User_ID = $_GET['User_ID'];
     <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
     <script>
          $(document).ready(function(){
              $('#vote').click(function(){
@@ -77,11 +76,10 @@ $User_ID = $_GET['User_ID'];
                     <a class="nav-link text-dark" href="../Show-Vote/Show-Vote.php" id= "votePoll">โหวตโพล</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="#" id="adoutPoll">เกี่ยวกับ Vote.com</a>
+                    <a class="nav-link text-dark" href="../About/About.php " id="adoutPoll">เกี่ยวกับ Vote.com</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
-                <i class="fa fa-search mt-2 mr-3"></i>
                 <?php
                 if (isset($_SESSION['id'])) {
                 ?>
@@ -90,8 +88,7 @@ $User_ID = $_GET['User_ID'];
                         <?php echo $_SESSION["Username"] ?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="../My-Poll/My-Poll.php">โพลของฉัน</a>
                             <a class="dropdown-item" href="../../ServerPHP/Logout/logout_index.php" id="Logout">Logout</a>
                         </div>
                     </li>   
@@ -111,8 +108,8 @@ $User_ID = $_GET['User_ID'];
         </div>
     </nav>
     <div class="container">
-        <img src="../../img/Poll/<?php echo $topic_ID ?>.png"  class="img-fluid float-left mt-5" alt="Responsive image" style="width:700px;height:400px">
-        <div class="card float-left ml-2 mt-5" style="width:350px;">
+        <img src="../../img/Poll/<?php echo $topic_ID ?>.png"  class="img-fluid float-left mt-5" alt="Responsive image" style="width:600px;height:400px">
+        <div class="card float-left  mt-5" style="width:350px;">
             <div class="card-body">
                 <h4 class="card-title"><?php echo $topic_text ?></h4>
                 <!-- </div> -->

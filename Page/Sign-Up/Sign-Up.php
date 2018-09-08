@@ -11,7 +11,6 @@
     <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script>
         $(document).ready(function(){        
             $('#submit').click(function(){ 
@@ -45,12 +44,27 @@
                     });
                 }
             });
+            $('#createPoll').click(function(){
+               $.ajax({
+                   url: "../../ServerPHP/Check-SingnIn.php",
+                   success: function (response) {
+                       if(response == "OK"){
+                            window.location.href = "../Create-Poll/createPoll.php";
+                       }else{
+                        swal("ประกาศ","ท่านยังไม่ได้เข้าสู่ระบบ","warning")
+                            .then((value) => {
+                                window.location.href = "../Sign-in/Sign-in.php";
+                            });
+                       }
+                   }
+               });
+            }); 
         });
     </script>
 </head>
 
 <body>
-    <nav class= "navbar navbar-expand-md bg-white navbar-dark shadow-sm">
+    <nav class= "navbar navbar-expand-md bg-white navbar-dark shadow-sm navbar-inverse navbar-fixed-top">
         <div class="container">
          <a class="navbar-brand text-success" href="../../index.php" id="text-lowgo"> <h3>Vote.com</h3> </a>
          <button class="navbar-toggler bg-success" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -65,7 +79,7 @@
                     <a class="nav-link text-dark" href="../Show-Vote/Show-Vote.php" id= "votePoll">โหวตโพล</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="#" id="adoutPoll">เกี่ยวกับ Vote.com</a>
+                    <a class="nav-link text-dark" href="../About/About.php" id="adoutPoll">เกี่ยวกับ Vote.com</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -134,8 +148,8 @@
                             </div>
                         </div>
                         <div class="col-sm">
-                            <div class="">Confirm Password : </div>
-                            <div class="">
+                            <div>Confirm Password : </div>
+                            <div>
                                 <label for="inputConfirmPassword" class="sr-only">Confirm Password</label>
                                 <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Confirm Password" required="">
                             </div>

@@ -17,7 +17,6 @@
     <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
     <?php
         $con = mysqli_connect('localhost','root','123456789','web_vote');
         if(!$con){
@@ -77,8 +76,8 @@
                 // <button type="button" class="btn btn-danger mr-2" id="remove" value="<?php echo $data[0]?>">-</button>
                     
                    var input1 = '<button type="button" class="btn btn-danger mr-2" name="remove<?php echo $data[0]?>"  id="remove" onclick="myFunction(<?php echo $data[0] ?>,this)">-</button><div class="choiceform">';
-                   input1 += '<input type="text" class="form-control w-75" name="choice[]" id="text-choiceform" placeholder="ตัวเลือก" value="<?php echo $data[2]?>" required> ';
-                   input1 += '<input type="color" name="color[]" id="color" value="<?php echo $data[4]?>" required>';
+                   input1 += '<input type="text" class="form-control w-75" name="choice[]" id="text-choiceform"  placeholder="ตัวเลือก" value="<?php echo $data[2]?>"  required> ';
+                   input1 += '<input type="color" name="color[]" id="color"  value="<?php echo $data[4]?>" required>';
                    input1 += '</div>';
                    $('.chice-container').append(input1);
             <?php   
@@ -96,7 +95,8 @@
         float: left;  
     }
     #color{
-        margin-left: 10px;
+        margin-left: 3px;
+
         width: 10%;
         height: 40px;
     }
@@ -153,7 +153,7 @@
                     <a class="nav-link text-dark" href="../Show-Vote/Show-Vote.php" id= "votePoll">โหวตโพล</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="#" id="adoutPoll">เกี่ยวกับ Vote.com</a>
+                    <a class="nav-link text-dark" href="../About/About.php" id="adoutPoll">เกี่ยวกับ Vote.com</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -166,9 +166,8 @@
                         <?php echo $_SESSION["Username"] ?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="../../ServerPHP/Logout/logout_index.php" id="Logout">Logout</a>
+                            <a class="dropdown-item" href="../My-Poll/My-Poll.php">โพลของฉัน</a>
+                            <a class="dropdown-item" href="../../ServerPHP/Logout/logout_Page.php" id="Logout">Logout</a>
                         </div>
                     </li>   
                 <?php } else { ?>
@@ -187,20 +186,14 @@
         </div>
     </nav>
     <div class="container">
-        <h1 class=" mt-3">Management System</h1>
+        <h1 class=" mt-3" style="text-align:center">Management System</h1>
         <form method="post" class="mx-auto w-75" enctype="multipart/form-data">
             <br>
             <div class="form-group">
                 <input type="text" name="topic" class="form-control" id="InputText"  placeholder="หัวข้อโพล" value="<?php echo $topic_text ?>" required>
             </div>
-            <!-- <div class="form-group">
-                <label for="ControlFile">ไฟล์รูปภาพสำหรับพื้นหลัง (ขนาดที่แนะนำคือ 700 x 400)</label>
-                <input type="file" class="form-control-file" name="ControlFile">
-            </div> -->
             <br>  
             ตัวเลือก
-                <!-- <button type="button" class="btn btn-success" id="add">+</button> -->
-                    <!-- <button type="button" class="btn btn-danger" id="remove">-</button> -->
             <br> <br>
             <div class="chice-container "> </div> <br>
             <a href="../Report-PDF-Vote/Report-PDF-Vote.php?topic_ID=<?php echo $topic_ID ?>&topic_text=<?php echo urlencode($topic_text) ?>&User_ID=<?php echo $User_ID ?>" class>รายงานทางสถิติ</a><br>                    

@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,12 +12,10 @@
     <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
     <style>
     .parallax-window {
-        
         min-height: 400px;
         background: transparent;
     }
@@ -31,13 +32,13 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ">
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="#" id="createPoll">สร้างโพล</a>
+                    <a class="nav-link text-dark" href="../Create-Poll/createPoll.php" id="createPoll">สร้างโพล</a>
                 </li>
                  <li class="nav-item">
-                    <a class="nav-link text-dark" href="Page/Show-Vote/Show-Vote.php" id= "votePoll">โหวตโพล</a>
+                    <a class="nav-link text-dark" href="../Show-Vote/Show-Vote.php" id= "votePoll">โหวตโพล</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="Page/About/About.php" id="adoutPoll">เกี่ยวกับ Vote.com</a>
+                    <a class="nav-link text-dark" href="../About/About.php" id="adoutPoll">เกี่ยวกับ Vote.com</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -50,21 +51,20 @@
                         <?php echo $_SESSION["Username"] ?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="Page/My-Poll/My-Poll.php">โพลของฉัน</a>
-                            <!-- <a class="dropdown-item" href="#">Another action</a> -->
-                            <a class="dropdown-item" href="ServerPHP/Logout/logout_index.php">Logout</a>
+                            <a class="dropdown-item" href="../My-Poll/My-Poll.php">โพลของฉัน</a>
+                            <a class="dropdown-item" href="../../ServerPHP/Logout/logout_Page.php">Logout</a>
                         </div>
                     </li>   
                 <?php 
             } else { ?>
                     <li class="nav-item">
-                        <a class="nav-link text-dark login" href="Page/Sign-in/Sign-in.php"  id="Signin">Sign in</a>
+                        <a class="nav-link text-dark login" href="../Sign-in/Sign-in.php"  id="Signin">Sign in</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark login" href="#">Or</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark login" href="Page/Sign-Up/Sign-Up.php" id="Signout">Sign up</a>
+                        <a class="nav-link text-dark login" href="../Sign-Up/Sign-Up.php" id="Signout">Sign up</a>
                     </li>
                 <?php 
             } ?>

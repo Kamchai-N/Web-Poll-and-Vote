@@ -13,7 +13,6 @@ session_start();
     <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
 </head>
 <body>
     <nav class= "navbar navbar-expand-md bg-white navbar-dark shadow-sm">
@@ -28,10 +27,10 @@ session_start();
                     <a class="nav-link text-dark" href="../Create-Poll/createPoll.php" id="createPoll">สร้างโพล</a>
                 </li>
                  <li class="nav-item">
-                    <a class="nav-link text-dark" href="#" id= "votePoll">โหวตโพล</a>
+                    <a class="nav-link text-dark" href="../Show-Vote/Show-Vote.php" id= "votePoll">โหวตโพล</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="#" id="adoutPoll">เกี่ยวกับ Vote.com</a>
+                    <a class="nav-link text-dark" href="../About/About.php" id="adoutPoll">เกี่ยวกับ Vote.com</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -44,8 +43,7 @@ session_start();
                         <?php echo $_SESSION["Username"] ?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <!-- <a class="dropdown-item" href="#">Another action</a> -->
+                            <a class="dropdown-item" href="../My-Poll/My-Poll.php">โพลของฉัน</a>
                             <a class="dropdown-item" href="../../ServerPHP/Logout/logout_index.php" id="Logout">Logout</a>
                         </div>
                     </li>   
@@ -65,6 +63,8 @@ session_start();
         </div>
     </nav>
     <div class="container">
+        <h1 class="mt-5" style="font-family: 'Mitr', sans-serif;text-align:center;">โพลของฉัน</h1>
+        <hr>
         <div class='row'>
     <?php
          $con = mysqli_connect('localhost','root','123456789','web_vote');
