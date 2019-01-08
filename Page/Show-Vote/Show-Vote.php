@@ -65,7 +65,7 @@ session_start();
     <div class="container">
         <div class='row'>
     <?php
-         $con = mysqli_connect('localhost','root','123456789','web_vote');
+         $con = mysqli_connect('XXXXX','XXXXX','XXXXX','web_vote');
          if(!$con){
              exit("ไม่สามารถเชื่อมต่อฐานข้อมูลได้");
          }
