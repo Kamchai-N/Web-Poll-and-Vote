@@ -78,7 +78,7 @@ $User_ID = $_GET['User_ID'];
 
     <canvas id="ChartBnt" width="30%"></canvas>
     <?php 
-            $con = mysqli_connect('localhost','root','123456789','web_vote');
+            $con = mysqli_connect('XXXXX','XXXXX','XXXXX','web_vote');
             if(!$con){
                 exit("ไม่สามารถเชื่อมต่อฐานข้อมูลได้");
             }
